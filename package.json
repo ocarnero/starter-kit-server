@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel security-check open:src lint:watch",
+    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
     "open:src": "nodemon --exec babel-node src/server.js",
     "security-check": "npm audit --audit-level high",
     "lint": "esw src --fix --color",
-    "lint:watch": "npm run lint -- --watch"
+		"lint:watch": "npm run lint -- --watch",
+		"test": "mocha src/**/*.test.js --reporter progress --require @babel/register",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
