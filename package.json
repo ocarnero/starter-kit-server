@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --parallel security-check open:src",
+    "open:src": "nodemon --exec babel-node src/server.js",
+    "security-check": "npm audit --audit-level high"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,21 @@
   "bugs": {
     "url": "https://github.com/ocarnero/starter-kit-server/issues"
   },
-  "homepage": "https://github.com/ocarnero/starter-kit-server#readme"
+  "homepage": "https://github.com/ocarnero/starter-kit-server#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.12"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5"
+  }
 }
