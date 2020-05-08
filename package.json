@@ -6,8 +6,8 @@
   "scripts": {
     "start": "npm-run-all --parallel security-check open:src lint:watch",
     "open:src": "nodemon --exec babel-node src/server.js",
-		"security-check": "npm audit --audit-level high",
-		"lint": "esw src --fix --color",
+    "security-check": "npm audit --audit-level high",
+    "lint": "esw src --fix --color",
     "lint:watch": "npm run lint -- --watch"
   },
   "repository": {
@@ -33,9 +33,11 @@
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
     "@babel/preset-env": "^7.9.6",
+    "chai": "^4.2.0",
     "eslint": "^6.8.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-watch": "^6.0.1",
+    "mocha": "^7.1.2",
     "nodemon": "^2.0.3",
     "npm-run-all": "^4.1.5"
   }
