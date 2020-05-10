@@ -8,8 +8,8 @@
     "open:src": "nodemon --exec babel-node src/server.js",
     "security-check": "npm audit --audit-level high",
     "lint": "esw src --fix --color",
-		"lint:watch": "npm run lint -- --watch",
-		"test": "mocha src/**/*.test.js --reporter progress --require @babel/register",
+    "lint:watch": "npm run lint -- --watch",
+    "test": "mocha src/**/*.test.js --reporter progress --require @babel/register",
     "test:watch": "npm run test -- --watch"
   },
   "repository": {
@@ -23,17 +23,31 @@
   },
   "homepage": "https://github.com/ocarnero/starter-kit-server#readme",
   "dependencies": {
+    "apollo-errors": "^1.9.0",
+    "apollo-server-express": "^2.13.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "graphql-depth-limit": "^1.1.0",
+    "graphql-iso-date": "^3.6.1",
+    "graphql-middleware": "^4.0.2",
+    "graphql-shield": "^7.2.6",
+    "graphql-tools": "^5.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.12"
+    "mongoose": "^5.9.12",
+    "password-validator": "^5.0.3",
+    "validator": "^13.0.0",
+    "winston": "^3.2.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.6",
     "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.9.6",
     "chai": "^4.2.0",
     "eslint": "^6.8.0",
