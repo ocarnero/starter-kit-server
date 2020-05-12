@@ -4,9 +4,7 @@ const { combine, timestamp, prettyPrint, json } = winston.format;
 
 export const logger = winston.createLogger({
     level: process.env.LOG_LEVEL || 'info',
-    format: combine(
-        timestamp(),
-        json(),
+    format: combine(timestamp(),//json(),
         prettyPrint({
             colorize: true
         })

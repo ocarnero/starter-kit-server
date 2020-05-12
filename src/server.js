@@ -2,7 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { ApolloServer } from 'apollo-server-express';
-//import { initDatabase } from './utils/database';
+import { initDatabase } from './utils/database';
 import { apiExplorer } from './api';
 import { verify } from './utils/jwt';
 import { logger } from './utils/logging';
@@ -12,7 +12,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // Do not reject self signed cer
 const port = process.env.PORT || 8080;
 
 // Init database
-//initDatabase();
+initDatabase();
 
 // Init api and run server
 apiExplorer.getSchema()
@@ -27,25 +27,21 @@ apiExplorer.getSchema()
         // Configure apollo
         const apolloServer = new ApolloServer({
             schema,
-
             context: ({ req, res }) => {
                 const context = {};
-
                 // Verify jwt token
                 context.authUser = verify(req, res);
 
                 return context;
             },
-
             formatError: (error) => {
                 logger.error(error);
                 return error;
             },
-
             validationRules: [
                 depthLimit(5)
-            ],
-
+						],
+						//playground: process.env.NODE_ENV === 'development' ? true : false,
             debug: true
         });
 
@@ -53,7 +49,7 @@ apiExplorer.getSchema()
 
         // Run server
         app.listen({ port }, () => {
-            logger.info(`🚀Server ready at http://localhost:${ port }${ apolloServer.graphqlPath }`);
+            logger.info(`🚀 Server ready at http://localhost:${ port }${ apolloServer.graphqlPath }`);
         });
     })
     .catch(err => {

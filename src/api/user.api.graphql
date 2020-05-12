@@ -1,14 +1,10 @@
 extend type Query {
-
     userById(id: ID!): User
-
     users: [User!]!
 }
 
 extend type Mutation {
-
     editUser(id: ID!, editUserReq: EditUserReq!): User
-
     deleteUser(id: ID!): User
 }
 
