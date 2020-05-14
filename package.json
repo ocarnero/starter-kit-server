@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch",
     "open:src": "nodemon --exec babel-node src/server.js",
     "security-check": "npm audit --audit-level high",
     "lint": "esw src --fix --color",

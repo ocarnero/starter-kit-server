@@ -21,7 +21,7 @@ export const resolvers = {
 
             const token = sign(user);
             return {
-                success: true, message: 'Success!', token
+                success: true, message: 'Success!', token, user
             };
         },
         signup: async (obj, { signupReq }, context, info) => {

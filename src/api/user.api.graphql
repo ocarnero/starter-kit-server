@@ -1,6 +1,7 @@
 extend type Query {
     userById(id: ID!): User
     users: [User!]!
+		roles: [String!]
 }
 
 extend type Mutation {
@@ -14,6 +15,7 @@ type User {
     updatedAt: DateTime!
     fullName: String!
     email: String!
+		role: String!
 }
 
 input EditUserReq {

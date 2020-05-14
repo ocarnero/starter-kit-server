@@ -16,7 +16,7 @@ const findByIds = async (ids) => {
 
 const findAll = async (first, offset) => {
 	first = first || 100;
-	offset = offset || 1;
+	offset = offset || 0;
 
 	const result = User.find()
     .skip(offset)

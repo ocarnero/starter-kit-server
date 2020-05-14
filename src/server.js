@@ -9,7 +9,7 @@ import { logger } from './utils/logging';
 import depthLimit from 'graphql-depth-limit';
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'; // Do not reject self signed certificates
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 // Init database
 initDatabase();

@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import USER_ROLES from './enums.model';
+
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
@@ -11,7 +13,7 @@ var userSchema = new Schema({
 	role: {
 		type: String,
 		required: true,
-		enum: ['ADMIN', 'USER_MANAGER', 'USER',]
+		enum: USER_ROLES
 	}
 }, { collection: 'users' })
 	.pre('save', function(next) {
