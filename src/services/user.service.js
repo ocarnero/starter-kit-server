@@ -44,13 +44,14 @@ const login = async (email, password) => {
 	return user;
 };
 
-const createUser = async (editUserReq) => {
-	editUserReq.password = await bcrypt.hash(editUserReq.password, HASH_ROUNDS);
-	delete editUserReq.rePassword;
+const createUser = async (addUserReq) => {
+	console.log(addUserReq)
+	addUserReq.password = await bcrypt.hash(addUserReq.password, HASH_ROUNDS);
+	delete addUserReq.rePassword;
 
-	editUserReq.role = editUserReq.role || 'USER';
+	addUserReq.role = addUserReq.role || 'USER';
 
-	const user = new User(editUserReq);
+	const user = new User(addUserReq);
 
 	await user.save(function(err) {
 		if (err) throw new UserInputError(err);

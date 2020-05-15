@@ -1,5 +1,14 @@
 import { UserInputError } from 'apollo-server-express';
 import { isEmail } from 'validator';
+import PasswordValidator from 'password-validator';
+
+const passwordSchema = new PasswordValidator()
+    .is().min(3)
+    .is().max(20);
+    //.has().letters()
+    //.has().digits()
+    //.has().symbols()
+    //.has().not().spaces();
 
 export const validators = {
     Mutation: {
