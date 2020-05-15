@@ -17,6 +17,23 @@ export const resolvers = {
 				},
     },
     Mutation: {
+			addUser: async (obj, { addUserReq }, context, info) => {
+						if (await userService.findByEmail(addUserReq.email)) {
+								return { success: false, message: 'Email address exists!', user: undefined };
+						}
+						
+						try {
+							let user = await userService.createUser(addUserReq);
+
+							if(user) {
+								return { success: true, message: 'Success!', user }
+							}
+							return { success: false, message: "Error ocurred", user: undefined }
+						} 
+						catch (err) {
+								return { success: false, message: err, user: undefined }
+						}
+				},
         editUser: (obj, { id, editUserReq }, context, info) => {
 						return userService.editUser(id, editUserReq);
         },

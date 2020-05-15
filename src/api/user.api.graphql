@@ -5,6 +5,7 @@ extend type Query {
 }
 
 extend type Mutation {
+		addUser(addUserReq: addUserReq!): User
     editUser(id: ID!, editUserReq: EditUserReq!): User
     deleteUser(id: ID!): User
 }
@@ -13,6 +14,12 @@ type User {
     id: ID!
     createdAt: DateTime!
     updatedAt: DateTime!
+    fullName: String!
+    email: String!
+		role: String!
+}
+
+input addUserReq {
     fullName: String!
     email: String!
 		role: String!

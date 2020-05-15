@@ -6,6 +6,7 @@ export const permissions = {
         users: isUserManager
     },
     Mutation: {
+				addUser: isUserManager,
         editUser: isUserManager,
         deleteUser: isUserManager
     }
