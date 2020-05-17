@@ -1,6 +1,6 @@
 extend type Query {
     userById(id: ID!): User
-    users: [User!]!
+    users: [User!]
 		roles: [String!]
 }
 
@@ -11,7 +11,7 @@ extend type Mutation {
 }
 
 type User {
-    id: ID!
+    _id: ID!
     createdAt: DateTime!
     updatedAt: DateTime!
     fullName: String!

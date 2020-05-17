@@ -22,6 +22,7 @@ const findAll = async (first, offset) => {
     .skip(offset)
 		.limit(first)
 		.exec();
+	result.then((res)=>console.log(res))
 
 	return result;
 };
@@ -49,7 +50,7 @@ const createUser = async (addUserReq) => {
 	addUserReq.password = await bcrypt.hash(addUserReq.password, HASH_ROUNDS);
 	delete addUserReq.rePassword;
 
-	addUserReq.role = addUserReq.role || 'USER';
+	addUserReq.role = addUserReq.role || 'USER_MANAGER';
 
 	const user = new User(addUserReq);
 

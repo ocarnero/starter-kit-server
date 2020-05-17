@@ -4,7 +4,6 @@ import USER_ROLES from './enums.model';
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-	id: mongoose.ObjectId,
 	createdAt: { type: Date, default: Date.now },
 	updatedAt: { type: Date },
 	fullName: { type: String, trim: true },
