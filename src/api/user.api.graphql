@@ -6,8 +6,8 @@ extend type Query {
 
 extend type Mutation {
 		addUser(addUserReq: addUserReq!): SingupStatus!
-    editUser(id: ID!, editUserReq: EditUserReq!): User
-    deleteUser(id: ID!): User
+    editUser(_id: ID!, editUserReq: EditUserReq!): User
+    deleteUser(_id: ID!): User
 }
 
 type User {
@@ -29,4 +29,5 @@ input addUserReq {
 input EditUserReq {
     fullName: String!
     email: String!
+		role: String!
 }

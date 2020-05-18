@@ -34,11 +34,11 @@ export const resolvers = {
 						return { success: false, message: err, user: undefined }
 				}
 				},
-        editUser: (obj, { id, editUserReq }, context, info) => {
-						return userService.editUser(id, editUserReq);
+        editUser: (obj, { _id, editUserReq }, context, info) => {
+						return userService.editUser(_id, editUserReq);
         },
-        deleteUser: (obj, { id }, context, info) => {
-						return userService.deleteUser(id);
+        deleteUser: (obj, { _id }, context, info) => {
+						return userService.deleteUser(_id);
         }
     }
 };

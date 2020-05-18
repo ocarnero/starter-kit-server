@@ -22,8 +22,6 @@ const findAll = async (first, offset) => {
     .skip(offset)
 		.limit(first)
 		.exec();
-	result.then((res)=>console.log(res))
-
 	return result;
 };
 
@@ -60,7 +58,7 @@ const createUser = async (addUserReq) => {
 	return user;
 };
 
-const editUser = async (id, editUserReq) => {
+const editUser = async (_id, editUserReq) => {
 	if (!editUserReq.fullName) {
 			delete editUserReq.fullName;
 	}
@@ -69,14 +67,13 @@ const editUser = async (id, editUserReq) => {
 	}
 
 	if (editUserReq.email) {
-			const user = await this.findByEmail(editUserReq.email);
-
-			if (user && user.id !== id) {
+			const user = await findByEmail(editUserReq.email);
+			if (user && user._id != _id) {
 					throw new UserInputError('Email address exists!');
 			}
 	}
 	return User.findByIdAndUpdate(
-		id,
+		_id,
 		editUserReq,
 		{new: true},
 		(err) => {
@@ -84,10 +81,10 @@ const editUser = async (id, editUserReq) => {
 		})
 };
 
-const deleteUser = async (id) => {
-	const user = await User.findById(id);
+const deleteUser = async (_id) => {
+	const user = await User.findById(_id);
 
-	await User.findByIdAndDelete(id, (err) => {
+	await User.findByIdAndDelete(_id, (err) => {
 		if(err) throw new UserInputError(err);
 	});
 
