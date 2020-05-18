@@ -24,7 +24,6 @@ export const resolvers = {
 				
 				try {
 					let user = await userService.createUser(addUserReq);
-					console.log(user)
 					if(user) {
 						return { success: true, message: 'Success!', user }
 					}
