@@ -1,33 +1,33 @@
 extend type Query {
-    userById(id: ID!): User
-    users: [User!]
-		roles: [String!]
+  userById(id: ID!): User
+  users: [User!]
+  roles: [String!]
 }
 
 extend type Mutation {
-		addUser(addUserReq: addUserReq!): SingupStatus!
-    editUser(_id: ID!, editUserReq: EditUserReq!): User
-    deleteUser(_id: ID!): User
+  addUser(addUserReq: addUserReq!): SingupStatus!
+  editUser(_id: ID!, editUserReq: EditUserReq!): User
+  deleteUser(_id: ID!): User
 }
 
 type User {
-    _id: ID!
-    createdAt: DateTime!
-    updatedAt: DateTime!
-    fullName: String!
-    email: String!
-		role: String!
+  _id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  fullName: String!
+  email: String!
+  role: String!
 }
 
 input addUserReq {
-    fullName: String!
-    email: String!
-		role: String!
-		password: String!
+  fullName: String!
+  email: String!
+  role: String!
+  password: String!
 }
 
 input EditUserReq {
-    fullName: String!
-    email: String!
-		role: String!
+  fullName: String!
+  email: String!
+  role: String!
 }

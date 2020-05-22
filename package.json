@@ -8,6 +8,7 @@
     "open:src": "nodemon --exec babel-node src/server.js",
     "security-check": "npm audit --audit-level high",
     "lint": "esw src --fix --color",
+    "eslint": "eslint --fix .eslintrc",
     "lint:watch": "npm run lint -- --watch",
     "test": "mocha src/**/*.test.js --reporter progress --require @babel/register",
     "test:watch": "npm run test -- --watch"
